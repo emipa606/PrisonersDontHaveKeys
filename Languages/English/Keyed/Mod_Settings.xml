@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDHK.owndoor.label>Escaping prisoners can open their own door</PDHK.owndoor.label>
+  <PDHK.owndoor.description>To simulate that the prisoners have found a way to open the door when the prison-break happens you can allow them to be able to open the door to their own cell but not other doors</PDHK.owndoor.description>
+  <PDHK.logging.label>Enable verbose logging</PDHK.logging.label>
+  <PDHK.logging.tooltip>Shows verbose logging, for finding errors</PDHK.logging.tooltip>
+  <PDHK.version.label>Installed mod-version: {0}</PDHK.version.label>
+</LanguageData>
