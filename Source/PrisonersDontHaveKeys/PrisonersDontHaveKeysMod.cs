@@ -77,6 +77,15 @@ namespace PrisonersDontHaveKeys
                 GUI.contentColor = Color.white;
             }
 
+            listing_Standard.Gap();
+            listing_Standard.CheckboxLabeled("PDHK.forprisoners.label".Translate(), ref Settings.AppliesForPrisoners);
+            listing_Standard.CheckboxLabeled("PDHK.forslaves.label".Translate(), ref Settings.AppliesForSlaves);
+            if (!Settings.AppliesForSlaves && !Settings.AppliesForPrisoners)
+            {
+                listing_Standard.Label("PDHK.nothing.label".Translate());
+            }
+
+            listing_Standard.Gap();
             listing_Standard.CheckboxLabeled("PDHK.owndoor.label".Translate(), ref Settings.OwnDoor,
                 "PDHK.owndoor.description".Translate());
             listing_Standard.End();

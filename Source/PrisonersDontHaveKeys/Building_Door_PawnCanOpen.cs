@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Linq;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -15,17 +16,29 @@ namespace PrisonersDontHaveKeys
                 return;
             }
 
-            if (!p.IsPrisonerOfColony)
+            if (PrisonersDontHaveKeysMod.instance.Settings.AppliesForPrisoners && p.IsPrisonerOfColony)
+            {
+                if (!PrisonBreakUtility.IsPrisonBreaking(p))
+                {
+                    return;
+                }
+
+                __result = PrisonersDontHaveKeysMod.instance.Settings.OwnDoor && p.GetRoom().IsPrisonCell;
+                return;
+            }
+
+            if (!PrisonersDontHaveKeysMod.instance.Settings.AppliesForSlaves || !p.IsSlaveOfColony)
             {
                 return;
             }
 
-            if (!PrisonersDontHaveKeysMod.instance.Settings.OwnDoor)
+            if (!SlaveRebellionUtility.IsRebelling(p))
             {
                 return;
             }
 
-            __result = p.GetRoom().isPrisonCell;
+            __result = PrisonersDontHaveKeysMod.instance.Settings.OwnDoor &&
+                       p.GetRoom().ContainedBeds.Any(bed => bed.ForSlaves);
         }
     }
 }

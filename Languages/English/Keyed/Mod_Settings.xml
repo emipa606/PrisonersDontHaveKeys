@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <PDHK.owndoor.label>Escaping prisoners can open their own door</PDHK.owndoor.label>
-  <PDHK.owndoor.description>To simulate that the prisoners have found a way to open the door when the prison-break happens you can allow them to be able to open the door to their own cell but not other doors</PDHK.owndoor.description>
+  <PDHK.owndoor.label>Escaping pawns can open their own door</PDHK.owndoor.label>
+  <PDHK.owndoor.description>To simulate that the prisoners/slaves have found a way to open the door when the escape happens you can allow them to be able to open the door to their own cell but not other doors</PDHK.owndoor.description>
+  <PDHK.forprisoners.label>Applies to prisoners</PDHK.forprisoners.label>
+  <PDHK.forslaves.label>Applies to slaves</PDHK.forslaves.label>
+  <PDHK.nothing.label>You should select one option since the mod will not do anything otherwise</PDHK.nothing.label>
   <PDHK.logging.label>Enable verbose logging</PDHK.logging.label>
   <PDHK.logging.tooltip>Shows verbose logging, for finding errors</PDHK.logging.tooltip>
   <PDHK.version.label>Installed mod-version: {0}</PDHK.version.label>
