@@ -1,5 +1,8 @@
 # Changelog for PrisonersDontHaveKeys
 
+1.0.2.0 - Added support for Doors Expanded
+
+
 1.0.1.0 - Added specific support for slaves in 1.3
 
 

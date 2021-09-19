@@ -7,6 +7,17 @@ I found it odd that prisoners could open doors when escaping when fleeing raider
 So this mod makes prisoner having to bash doors when escaping as well.
 
 There is also a mod-option to allow prisoners to open cell-doors during a prison break but not other doors. This is to simulate that the prisoner have found a way to open the door and that is the start of the prison break.
+
+Since 1.3 added slaves the mod can be applied to rebelling slaves as well by enabling it in the mod-options.
+
+[table]
+    [tr]
+        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
+[/td]
+        [td]https://github.com/emipa606/PrisonersDontHaveKeys]![Image](https://i.imgur.com/kTkpTOE.png)
+[/td]
+    [/tr]
+[/table]
 	
 ![Image](https://i.imgur.com/O0IIlYj.png)
 
