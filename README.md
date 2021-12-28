@@ -10,20 +10,13 @@ There is also a mod-option to allow prisoners to open cell-doors during a prison
 
 Since 1.3 added slaves the mod can be applied to rebelling slaves as well by enabling it in the mod-options.
 
-[table]
-    [tr]
-        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-        [td]https://github.com/emipa606/PrisonersDontHaveKeys]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-    [/tr]
-[/table]
+- Added support for https://steamcommunity.com/sharedfiles/filedetails/?id=1316188771]Doors Expanded
 	
 ![Image](https://i.imgur.com/O0IIlYj.png)
 
 Since modding is just a hobby for me I expect no donations to keep modding. If you still want to show your support you can gift me anything from my https://store.steampowered.com/wishlist/id/Mlie]Wishlist or buy me a cup of tea.
 
-https://ko-fi.com/G2G55DDYD]![Image](https://i.ibb.co/VWJJb3w/Support-Me-dark-2x.png)
+https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/Utx6OIH.png)
 
 
 ![Image](https://i.imgur.com/PwoNOj4.png)
