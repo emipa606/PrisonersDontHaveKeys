@@ -2,32 +2,31 @@
 using HarmonyLib;
 using Verse;
 
-namespace PrisonersDontHaveKeys
+namespace PrisonersDontHaveKeys;
+
+[StaticConstructorOnStartup]
+public class PrisonersDontHaveKeys
 {
-    [StaticConstructorOnStartup]
-    public class PrisonersDontHaveKeys
+    static PrisonersDontHaveKeys()
     {
-        static PrisonersDontHaveKeys()
+        var harmony = new Harmony("Mlie.PrisonersDontHaveKeys");
+        harmony.PatchAll(Assembly.GetExecutingAssembly());
+    }
+
+
+    public static void LogMessage(string message, bool forced = false, bool warning = false)
+    {
+        if (warning)
         {
-            var harmony = new Harmony("Mlie.PrisonersDontHaveKeys");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
+            Log.Warning($"[PrisonersDontHaveKeys]: {message}");
+            return;
         }
 
-
-        public static void LogMessage(string message, bool forced = false, bool warning = false)
+        if (!forced && !PrisonersDontHaveKeysMod.instance.Settings.VerboseLogging)
         {
-            if (warning)
-            {
-                Log.Warning($"[PrisonersDontHaveKeys]: {message}");
-                return;
-            }
-
-            if (!forced && !PrisonersDontHaveKeysMod.instance.Settings.VerboseLogging)
-            {
-                return;
-            }
-
-            Log.Message($"[PrisonersDontHaveKeys!]: {message}");
+            return;
         }
+
+        Log.Message($"[PrisonersDontHaveKeys!]: {message}");
     }
 }
