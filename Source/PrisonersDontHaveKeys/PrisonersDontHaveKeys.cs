@@ -9,8 +9,7 @@ public class PrisonersDontHaveKeys
 {
     static PrisonersDontHaveKeys()
     {
-        var harmony = new Harmony("Mlie.PrisonersDontHaveKeys");
-        harmony.PatchAll(Assembly.GetExecutingAssembly());
+        new Harmony("Mlie.PrisonersDontHaveKeys").PatchAll(Assembly.GetExecutingAssembly());
     }
 
 

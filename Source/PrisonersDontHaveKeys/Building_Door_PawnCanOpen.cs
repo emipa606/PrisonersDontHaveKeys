@@ -5,7 +5,7 @@ using Verse;
 
 namespace PrisonersDontHaveKeys;
 
-[HarmonyPatch(typeof(Building_Door), "PawnCanOpen")]
+[HarmonyPatch(typeof(Building_Door), nameof(Building_Door.PawnCanOpen))]
 public class Building_Door_PawnCanOpen
 {
     [HarmonyPostfix]

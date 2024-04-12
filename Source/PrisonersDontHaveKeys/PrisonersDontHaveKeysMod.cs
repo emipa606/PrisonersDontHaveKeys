@@ -30,8 +30,7 @@ internal class PrisonersDontHaveKeysMod : Mod
         instance = this;
 
         currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(
-                ModLister.GetActiveModWithIdentifier("Mlie.PrisonersDontHaveKeys"));
+            VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
     /// <summary>
