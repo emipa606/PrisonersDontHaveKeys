@@ -1,5 +1,8 @@
 # Changelog for PrisonersDontHaveKeys
 
+1.5.1 - Removed the redundant Doors Expanded patch
+
+
 1.5.0 - Updated for 1.5
 
 
