@@ -9,4 +9,5 @@
   <PDHK.logging.label>Включить ведение подробного журнала</PDHK.logging.label>
   <PDHK.logging.tooltip>Показывает подробное ведение журнала для поиска ошибок</PDHK.logging.tooltip>
   <PDHK.version.label>Установленная версия мода: {0}</PDHK.version.label>
+  <PDHK.foranomalies.label>Применяется к аномалиям</PDHK.foranomalies.label>
 </LanguageData>

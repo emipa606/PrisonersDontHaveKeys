@@ -9,4 +9,5 @@
   <PDHK.logging.label>Activer la journalisation verbeuse</PDHK.logging.label>
   <PDHK.logging.tooltip>Affiche la journalisation détaillée, pour trouver les erreurs.</PDHK.logging.tooltip>
   <PDHK.version.label>Version installée du module : {0}</PDHK.version.label>
+  <PDHK.foranomalies.label>S'applique aux anomalies</PDHK.foranomalies.label>
 </LanguageData>

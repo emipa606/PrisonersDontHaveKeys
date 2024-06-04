@@ -27,17 +27,21 @@ public class Building_Door_PawnCanOpen
             return;
         }
 
-        if (!PrisonersDontHaveKeysMod.instance.Settings.AppliesForSlaves || !p.IsSlaveOfColony)
+        if (PrisonersDontHaveKeysMod.instance.Settings.AppliesForSlaves && p.IsSlaveOfColony)
         {
+            if (!SlaveRebellionUtility.IsRebelling(p))
+            {
+                return;
+            }
+
+            __result = PrisonersDontHaveKeysMod.instance.Settings.OwnDoor &&
+                       p.GetRoom().ContainedBeds.Any(bed => bed.ForSlaves);
             return;
         }
 
-        if (!SlaveRebellionUtility.IsRebelling(p))
+        if (PrisonersDontHaveKeysMod.instance.Settings.AppliesForAnomalies && p.IsEntity)
         {
-            return;
+            __result = false;
         }
-
-        __result = PrisonersDontHaveKeysMod.instance.Settings.OwnDoor &&
-                   p.GetRoom().ContainedBeds.Any(bed => bed.ForSlaves);
     }
 }

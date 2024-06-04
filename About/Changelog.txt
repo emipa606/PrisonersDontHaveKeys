@@ -1,5 +1,9 @@
 # Changelog for PrisonersDontHaveKeys
 
+1.5.2 - Added setting to block anomalies from opening doors
+Used DeepL to update translations for ChineseSimplified, French, German, Russian
+
+
 1.5.1 - Removed the redundant Doors Expanded patch
 
 

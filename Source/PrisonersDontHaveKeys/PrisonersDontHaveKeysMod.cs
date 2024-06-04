@@ -77,11 +77,24 @@ internal class PrisonersDontHaveKeysMod : Mod
         }
 
         listing_Standard.Gap();
-        listing_Standard.CheckboxLabeled("PDHK.forprisoners.label".Translate(), ref Settings.AppliesForPrisoners);
-        listing_Standard.CheckboxLabeled("PDHK.forslaves.label".Translate(), ref Settings.AppliesForSlaves);
-        if (!Settings.AppliesForSlaves && !Settings.AppliesForPrisoners)
+        if (ModLister.IdeologyInstalled || ModLister.AnomalyInstalled)
         {
-            listing_Standard.Label("PDHK.nothing.label".Translate());
+            listing_Standard.CheckboxLabeled("PDHK.forprisoners.label".Translate(), ref Settings.AppliesForPrisoners);
+            if (ModLister.IdeologyInstalled)
+            {
+                listing_Standard.CheckboxLabeled("PDHK.forslaves.label".Translate(), ref Settings.AppliesForSlaves);
+            }
+
+            if (ModLister.AnomalyInstalled)
+            {
+                listing_Standard.CheckboxLabeled("PDHK.foranomalies.label".Translate(),
+                    ref Settings.AppliesForAnomalies);
+            }
+
+            if (!Settings.AppliesForSlaves && !Settings.AppliesForPrisoners && !Settings.AppliesForAnomalies)
+            {
+                listing_Standard.Label("PDHK.nothing.label".Translate());
+            }
         }
 
         listing_Standard.Gap();

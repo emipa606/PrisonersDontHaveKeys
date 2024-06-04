@@ -9,4 +9,5 @@
   <PDHK.logging.label>Ausführliche Protokollierung einschalten</PDHK.logging.label>
   <PDHK.logging.tooltip>Zeigt ausführliche Protokollierung, um Fehler zu finden</PDHK.logging.tooltip>
   <PDHK.version.label>Installierte Mod-Version: {0}</PDHK.version.label>
+  <PDHK.foranomalies.label>Gilt für Anomalien</PDHK.foranomalies.label>
 </LanguageData>
