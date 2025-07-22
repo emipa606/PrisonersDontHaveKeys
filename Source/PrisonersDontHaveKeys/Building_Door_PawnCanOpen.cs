@@ -8,7 +8,6 @@ namespace PrisonersDontHaveKeys;
 [HarmonyPatch(typeof(Building_Door), nameof(Building_Door.PawnCanOpen))]
 public class Building_Door_PawnCanOpen
 {
-    [HarmonyPostfix]
     public static void Postfix(Pawn p, ref bool __result)
     {
         if (!__result)
@@ -16,30 +15,30 @@ public class Building_Door_PawnCanOpen
             return;
         }
 
-        if (PrisonersDontHaveKeysMod.instance.Settings.AppliesForPrisoners && p.IsPrisonerOfColony)
+        if (PrisonersDontHaveKeysMod.Instance.Settings.AppliesForPrisoners && p.IsPrisonerOfColony)
         {
             if (!PrisonBreakUtility.IsPrisonBreaking(p))
             {
                 return;
             }
 
-            __result = PrisonersDontHaveKeysMod.instance.Settings.OwnDoor && p.GetRoom().IsPrisonCell;
+            __result = PrisonersDontHaveKeysMod.Instance.Settings.OwnDoor && p.GetRoom().IsPrisonCell;
             return;
         }
 
-        if (PrisonersDontHaveKeysMod.instance.Settings.AppliesForSlaves && p.IsSlaveOfColony)
+        if (PrisonersDontHaveKeysMod.Instance.Settings.AppliesForSlaves && p.IsSlaveOfColony)
         {
             if (!SlaveRebellionUtility.IsRebelling(p))
             {
                 return;
             }
 
-            __result = PrisonersDontHaveKeysMod.instance.Settings.OwnDoor &&
+            __result = PrisonersDontHaveKeysMod.Instance.Settings.OwnDoor &&
                        p.GetRoom().ContainedBeds.Any(bed => bed.ForSlaves);
             return;
         }
 
-        if (PrisonersDontHaveKeysMod.instance.Settings.AppliesForAnomalies && p.IsEntity)
+        if (PrisonersDontHaveKeysMod.Instance.Settings.AppliesForAnomalies && p.IsEntity)
         {
             __result = false;
         }

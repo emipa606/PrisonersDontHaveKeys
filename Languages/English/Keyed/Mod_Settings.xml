@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <PDHK.owndoor.label>Escaping pawns can open their own door</PDHK.owndoor.label>
   <PDHK.owndoor.description>To simulate that the prisoners/slaves have found a way to open the door when the escape happens you can allow them to be able to open the door to their own cell but not other doors</PDHK.owndoor.description>

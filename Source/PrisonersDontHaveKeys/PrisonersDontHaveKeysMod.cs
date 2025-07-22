@@ -10,7 +10,7 @@ internal class PrisonersDontHaveKeysMod : Mod
     /// <summary>
     ///     The instance of the settings to be read by the mod
     /// </summary>
-    public static PrisonersDontHaveKeysMod instance;
+    public static PrisonersDontHaveKeysMod Instance;
 
     private static string currentVersion;
 
@@ -27,7 +27,7 @@ internal class PrisonersDontHaveKeysMod : Mod
     public PrisonersDontHaveKeysMod(ModContentPack content)
         : base(content)
     {
-        instance = this;
+        Instance = this;
 
         currentVersion =
             VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
@@ -40,15 +40,10 @@ internal class PrisonersDontHaveKeysMod : Mod
     {
         get
         {
-            if (settings == null)
-            {
-                settings = GetSettings<PrisonersDontHaveKeysModSettings>();
-            }
+            settings ??= GetSettings<PrisonersDontHaveKeysModSettings>();
 
             return settings;
         }
-
-        set => settings = value;
     }
 
     public override string SettingsCategory()
@@ -64,42 +59,42 @@ internal class PrisonersDontHaveKeysMod : Mod
     {
         base.DoSettingsWindowContents(rect);
 
-        var listing_Standard = new Listing_Standard();
-        listing_Standard.Begin(rect);
-        listing_Standard.CheckboxLabeled("PDHK.logging.label".Translate(), ref Settings.VerboseLogging,
+        var listingStandard = new Listing_Standard();
+        listingStandard.Begin(rect);
+        listingStandard.CheckboxLabeled("PDHK.logging.label".Translate(), ref Settings.VerboseLogging,
             "PDHK.logging.tooltip".Translate());
         if (currentVersion != null)
         {
-            listing_Standard.Gap();
+            listingStandard.Gap();
             GUI.contentColor = Color.gray;
-            listing_Standard.Label("PDHK.version.label".Translate(currentVersion));
+            listingStandard.Label("PDHK.version.label".Translate(currentVersion));
             GUI.contentColor = Color.white;
         }
 
-        listing_Standard.Gap();
+        listingStandard.Gap();
         if (ModLister.IdeologyInstalled || ModLister.AnomalyInstalled)
         {
-            listing_Standard.CheckboxLabeled("PDHK.forprisoners.label".Translate(), ref Settings.AppliesForPrisoners);
+            listingStandard.CheckboxLabeled("PDHK.forprisoners.label".Translate(), ref Settings.AppliesForPrisoners);
             if (ModLister.IdeologyInstalled)
             {
-                listing_Standard.CheckboxLabeled("PDHK.forslaves.label".Translate(), ref Settings.AppliesForSlaves);
+                listingStandard.CheckboxLabeled("PDHK.forslaves.label".Translate(), ref Settings.AppliesForSlaves);
             }
 
             if (ModLister.AnomalyInstalled)
             {
-                listing_Standard.CheckboxLabeled("PDHK.foranomalies.label".Translate(),
+                listingStandard.CheckboxLabeled("PDHK.foranomalies.label".Translate(),
                     ref Settings.AppliesForAnomalies);
             }
 
             if (!Settings.AppliesForSlaves && !Settings.AppliesForPrisoners && !Settings.AppliesForAnomalies)
             {
-                listing_Standard.Label("PDHK.nothing.label".Translate());
+                listingStandard.Label("PDHK.nothing.label".Translate());
             }
         }
 
-        listing_Standard.Gap();
-        listing_Standard.CheckboxLabeled("PDHK.owndoor.label".Translate(), ref Settings.OwnDoor,
+        listingStandard.Gap();
+        listingStandard.CheckboxLabeled("PDHK.owndoor.label".Translate(), ref Settings.OwnDoor,
             "PDHK.owndoor.description".Translate());
-        listing_Standard.End();
+        listingStandard.End();
     }
 }

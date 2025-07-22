@@ -2,7 +2,15 @@
   "Continued": false,
   "CanAdd": "0",
   "CanRemove": "0",
-  "PreviewVersion": "1.5",
+  "PreviewVersion": "1.6",
   "SocialImageSet": true,
-  "FundingSet": true
+  "FundingSet": true,
+  "Patches": false,
+  "Defs": false,
+  "Assemblies": true,
+  "LinesOfCode": 8936,
+  "LinesOfXML": 0,
+  "CodeBaseSize": 63,
+  "LastXmlCleaning": "2025-07-22T20:11:39.6920632+02:00",
+  "SearchTags": " prison break"
 }
