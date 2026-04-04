@@ -1,58 +1,51 @@
-# GitHub Copilot Instructions for RimWorld Modding Project
-
-Welcome to the RimWorld modding project! This document serves as a comprehensive guide for using GitHub Copilot to assist with developing and improving this mod. Below, you'll find information on the mod's purpose, key features, coding patterns, integration with XML, and the use of Harmony patching.
+# Copilot Instructions for "Prisoners Don't Have Keys" RimWorld Mod
 
 ## Mod Overview and Purpose
 
-This mod focuses on expanding the functionality of doors within RimWorld, as well as introducing unique game mechanics concerning prisoners and their interaction with doors.
-
-### Purpose
-
-- Enhance door interactions to create complex game scenarios.
-- Implement mechanics to prevent prisoners from opening doors, increasing challenge and strategic depth for players managing their colonies.
+"Prisoners Don't Have Keys" is a mod for RimWorld that alters the behavior of prisoners during escape attempts. In the vanilla game, prisoners can open doors when escaping, contrary to fleeing raiders who cannot. This mod changes that dynamic, requiring prisoners to bash doors during an escape just like raiders. Additionally, the mod provides options to fine-tune the behavior of prisoners and other entities concerning door interactions, allowing for a more immersive gameplay experience that reflects a variety of scenarios.
 
 ## Key Features and Systems
 
-- **Doors Expanded:** Extend the basic functionality of doors with new interaction rules.
-- **Prisoner Security:** Introduce features that prevent prisoners from accessing doors, enhancing security management.
+- **Prisoner Door Interaction**: Prisoners are required to break down doors when escaping. This can be toggled to allow prisoners to open cell doors specifically at the beginning of a prison break.
+  
+- **Mod Options**: Customizable options include:
+  - Allowing prisoners to open only cell doors
+  - Blocking rioting slaves from opening doors if the Ideology DLC is active
+  - Blocking anomaly entities from opening doors if the Anomaly DLC is active
+
+- **Compatibility**: Enhanced support for the "Doors Expanded" mod, ensuring consistent behavior with modded doors.
 
 ## Coding Patterns and Conventions
 
-### Coding Standards
-
-- **Naming Conventions:** Use PascalCase for class names and camelCase for method names.
-- **Internal Classes:** Use internal access modifiers for classes not intended for utilization outside the project.
-- **Public Accessibility:** Limit public accessibility to essential classes and methods, aiming for encapsulation.
-  
-### Project Structure
-
-- **Assembly Info Files:** Include metadata about the assemblies being targeted (.NETFramework, Version v4.7.2 and v4.8).
-- **Core Classes:**
-  - `DoorsExpandedPatch`: Contains the core logic for the expanded door features.
-  - `Building_Door_PawnCanOpen`: Handles logic for determining if certain pawns can interact with doors.
-  - `PrisonersDontHaveKeys` and `PrisonersDontHaveKeysMod`: Core classes for managing prisoner mechanics.
+- **C# Conventions**: Follow the standard C# naming conventions with PascalCase for classes and methods.
+- **Code Structure**: Organize classes into distinct files grouped by related functionality. 
 
 ## XML Integration
 
-RimWorld mods often require XML integration for defining game objects, data-driven definitions, and translations. Although not listed here, ensure to use properly structured XML files for defining all data-driven content such as new building types, labels, and descriptions.
+- RimWorld uses XML for defining many of its settings. Ensure XML configurations for this mod follow RimWorld's schema, especially when interfacing with in-game settings and objects.
+  
+- Use XML for defining mod settings and available options. The mod settings should be clear and user-friendly, making use of descriptive names so that users know what they are toggling.
 
 ## Harmony Patching
 
-Harmony is a crucial aspect of modding RimWorld, allowing you to modify game behavior without altering the game's original source code.
+- **Harmony Library**: This mod uses Harmony for runtime patching of RimWorld's base methods.
+  
+- **Patch Structure**: Keep patches organized and directly related to their respective function. For example, use the `Building_Door_PawnCanOpen` class to handle the logic of pawns checking if they can open doors.
 
-- **Methods and Classes:** Use Harmony patches in `DoorsExpandedPatch` to safely override or extend base game functionality.
-- **Patch Types:**
-  - **Prefix:** Execute code before a target method runs.
-  - **Postfix:** Execute code after a target method completes.
-  - **Transpiler:** Modify the IL code of a method directly for more intricate changes.
+- Ensure patches are robust to future RimWorld updates, verifying the method signatures and any overridden behavior stays current with the game.
 
 ## Suggestions for Copilot
 
-To make effective use of GitHub Copilot:
+When using GitHub Copilot to assist in this mod’s development, consider the following prompts and usage guidance:
 
-- **Comment Code Thoroughly:** Providing comments in your code will help Copilot generate more context-aware suggestions.
-- **Use Descriptive Naming:** Clear variable and method naming will assist Copilot in understanding your project's intent.
-- **Review Suggestions:** Always review Copilot’s code suggestions to ensure they align with your project’s goals and coding standards.
-- **Use Copilot for Routine Tasks:** Leverage Copilot for automating repetitive tasks, such as generating boilerplate code or implementing standard patterns.
+- **Debugging Assistance**: "Generate a debugging method for door interaction logic in 'Building_Door_PawnCanOpen' class."
+  
+- **Settings Development**: "Extend the 'PrisonersDontHaveKeysModSettings' class to add a setting for blocking anomaly entities from doors."
 
-Feel free to refer to this file for enhancing your development workflow with Copilot, facilitating a smooth and efficient modding process within the RimWorld environment. Happy modding!
+- **Compatibility Handling**: "Create compatibility patches for systems influenced by 'Doors Expanded'."
+
+- **Harmony Patch Examples**: "Provide an example of a postfix method patch using Harmony for the 'CanOpen' function."
+
+- **XML Configuration**: "Suggest XML format for user options in 'ModSettings'."
+
+By leveraging these guidelines, GitHub Copilot can effectively enhance the development process for the "Prisoners Don't Have Keys" mod, ensuring consistent and efficient code production.

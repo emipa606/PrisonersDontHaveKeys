@@ -16,11 +16,6 @@ internal class PrisonersDontHaveKeysMod : Mod
 
 
     /// <summary>
-    ///     The private settings
-    /// </summary>
-    private PrisonersDontHaveKeysModSettings settings;
-
-    /// <summary>
     ///     Constructor
     /// </summary>
     /// <param name="content"></param>
@@ -28,7 +23,7 @@ internal class PrisonersDontHaveKeysMod : Mod
         : base(content)
     {
         Instance = this;
-        settings = GetSettings<PrisonersDontHaveKeysModSettings>();
+        Settings = GetSettings<PrisonersDontHaveKeysModSettings>();
 
         currentVersion =
             VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
@@ -37,13 +32,7 @@ internal class PrisonersDontHaveKeysMod : Mod
     /// <summary>
     ///     The instance-settings for the mod
     /// </summary>
-    internal PrisonersDontHaveKeysModSettings Settings
-    {
-        get
-        {
-            return settings;
-        }
-    }
+    internal PrisonersDontHaveKeysModSettings Settings { get; }
 
     public override string SettingsCategory()
     {
