@@ -28,6 +28,7 @@ internal class PrisonersDontHaveKeysMod : Mod
         : base(content)
     {
         Instance = this;
+        settings = GetSettings<PrisonersDontHaveKeysModSettings>();
 
         currentVersion =
             VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
@@ -40,8 +41,6 @@ internal class PrisonersDontHaveKeysMod : Mod
     {
         get
         {
-            settings ??= GetSettings<PrisonersDontHaveKeysModSettings>();
-
             return settings;
         }
     }
