@@ -37,4 +37,4 @@ Since modding is just a hobby for me I expect no donations to keep modding. If y
 
  
 
-[![Image](https://img.shields.io/github/v/release/emipa606/PrisonersDontHaveKeys?label=latest%20version&style=plastic&labelColor=0070cd&color=white)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2595360307) | tags: prison break
+[![Image](https://img.shields.io/github/v/release/emipa606/PrisonersDontHaveKeys?label=latest%20version&style=plastic&labelColor=0070cd&color=white)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2595360307) | 1.6, Mod, 1.5, 1.2, 1.3, 1.4, 1.1

@@ -6,7 +6,7 @@ using Verse;
 namespace PrisonersDontHaveKeys;
 
 [HarmonyPatch(typeof(Building_Door), nameof(Building_Door.PawnCanOpen))]
-public class Building_Door_PawnCanOpen
+public static class Building_Door_PawnCanOpen
 {
     public static void Postfix(Pawn p, ref bool __result)
     {

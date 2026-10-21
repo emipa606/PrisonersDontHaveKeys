@@ -1,51 +1,66 @@
-# Copilot Instructions for "Prisoners Don't Have Keys" RimWorld Mod
+# GitHub Copilot Instructions for Prisoners Dont Have Keys
+
+Welcome to the GitHub repository for the "Prisoners Dont Have Keys" mod for RimWorld. This document provides an overview of the mod, its key features, coding patterns, XML integration, harmony patching, and suggestions on how to effectively leverage GitHub Copilot for development and maintenance tasks.
 
 ## Mod Overview and Purpose
 
-"Prisoners Don't Have Keys" is a mod for RimWorld that alters the behavior of prisoners during escape attempts. In the vanilla game, prisoners can open doors when escaping, contrary to fleeing raiders who cannot. This mod changes that dynamic, requiring prisoners to bash doors during an escape just like raiders. Additionally, the mod provides options to fine-tune the behavior of prisoners and other entities concerning door interactions, allowing for a more immersive gameplay experience that reflects a variety of scenarios.
+"Prisoners Dont Have Keys" is a RimWorld mod designed to alter the behavior of prisoners during prison breaks by restricting their ability to open doors without bashing them, aligning their capabilities more closely with fleeing raiders. The mod also adds mod-options to customize this behavior further, allowing flexibility depending on player preferences and game expansions.
 
 ## Key Features and Systems
 
-- **Prisoner Door Interaction**: Prisoners are required to break down doors when escaping. This can be toggled to allow prisoners to open cell doors specifically at the beginning of a prison break.
-  
-- **Mod Options**: Customizable options include:
-  - Allowing prisoners to open only cell doors
-  - Blocking rioting slaves from opening doors if the Ideology DLC is active
-  - Blocking anomaly entities from opening doors if the Anomaly DLC is active
-
-- **Compatibility**: Enhanced support for the "Doors Expanded" mod, ensuring consistent behavior with modded doors.
+- **Prisoner Door Interaction:** Prisoners cannot open doors autonomously and must bash them to escape, mimicking fleeing raiders' behavior.
+- **Mod-Options Configuration:**
+  - Allow prisoners to open cell-doors during a prison break but restrict access to other doors.
+  - Option to prevent rioting slaves from opening doors if the Ideology DLC is present.
+  - Option to block anomaly entities from opening doors if the Anomaly DLC is installed.
+- **Enhanced Compatibility:** Added support for the "Doors Expanded" mod, providing seamless integration and improved game experience.
 
 ## Coding Patterns and Conventions
 
-- **C# Conventions**: Follow the standard C# naming conventions with PascalCase for classes and methods.
-- **Code Structure**: Organize classes into distinct files grouped by related functionality. 
+- **Namespace Organization:** Classes are organized under distinct namespaces such as `DoorsExpandedPatch` and `PrisonersDontHaveKeys`, reflecting their roles and functionalities.
+- **Object-Oriented Design:** Utilize object-oriented principles for clarity and maintainability with clearly defined class responsibilities.
+- **Modular Code Structure:** Code is structured in a modular way to separate responsibilities and facilitate easy updates and maintenance.
+
+## C# File Breakdown
+
+- **DoorsExpandedPatch.cs:** Contains the class for compatibility patches with "Doors Expanded".
+- **PrisonersDontHaveKeys.cs:** Core functionality for handling prisoner door interaction logic.
+- **Building_Door_PawnCanOpen.cs:** Patches related to checking whether prisoners can open doors.
+- **PrisonersDontHaveKeysMod.cs:** Implementations for mod configuration interface and settings.
+- **PrisonersDontHaveKeysModSettings.cs:** Handles the storage and exposure of mod settings.
 
 ## XML Integration
 
-- RimWorld uses XML for defining many of its settings. Ensure XML configurations for this mod follow RimWorld's schema, especially when interfacing with in-game settings and objects.
-  
-- Use XML for defining mod settings and available options. The mod settings should be clear and user-friendly, making use of descriptive names so that users know what they are toggling.
+The current iteration of "Prisoners Dont Have Keys" does not utilize XML definitions directly. Configuration and game interactions are managed through C# code and Harmony patches. If future updates require XML integration for defs or configurations, ensure to use RimWorld's XML conventions and structure for mod compatibility.
 
 ## Harmony Patching
 
-- **Harmony Library**: This mod uses Harmony for runtime patching of RimWorld's base methods.
-  
-- **Patch Structure**: Keep patches organized and directly related to their respective function. For example, use the `Building_Door_PawnCanOpen` class to handle the logic of pawns checking if they can open doors.
-
-- Ensure patches are robust to future RimWorld updates, verifying the method signatures and any overridden behavior stays current with the game.
+- **Dependency Management:** The mod depends on `brrainz.harmony` for runtime code modifications.
+- **Patch Implementation:** Implement patches using Harmony to adjust existing functionality without altering core game files. 
+- **Example Patch Usage:** Use `[HarmonyPostfix]` and `[HarmonyPrefix]` to implement custom logic post and pre original method execution.
 
 ## Suggestions for Copilot
 
-When using GitHub Copilot to assist in this mod’s development, consider the following prompts and usage guidance:
+- **Pattern Recognition:** Utilize Copilot to identify common coding patterns within the mod for efficient code suggestion and completion.
+- **Code Generation:** Allow Copilot to generate repetitive code constructs such as property getters/setters, or UI components in mod-settings.
+- **Refactoring Assistance:** Leverage Copilot to fetch suggested improvements or refactoring opportunities to enhance code readability and efficiency.
+- **Error Handling:** Use Copilot recommendations to enhance error handling and logging, ensuring greater stability and less runtime issues.
+- **Documentation:** Generate inline documentation or comments using Copilot to keep code annotations up to date and helpful for new developers.
 
-- **Debugging Assistance**: "Generate a debugging method for door interaction logic in 'Building_Door_PawnCanOpen' class."
-  
-- **Settings Development**: "Extend the 'PrisonersDontHaveKeysModSettings' class to add a setting for blocking anomaly entities from doors."
+This is a living document that can evolve alongside mod updates and changes. Feedback and additional contributions are always welcome to ensure the efficiency and quality of the development process. Happy modding!
 
-- **Compatibility Handling**: "Create compatibility patches for systems influenced by 'Doors Expanded'."
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The `.github/copilot-instructions.md` file is included in the solution under the `.github` solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
 
-- **Harmony Patch Examples**: "Provide an example of a postfix method patch using Harmony for the 'CanOpen' function."
 
-- **XML Configuration**: "Suggest XML format for user options in 'ModSettings'."
+## Hard rules (must follow)
+- Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
+- Prefer minimal reads: read only the smallest code region needed (around the suspicious lines).
+- When mentioning SonarQube issues, automatically use the SonarQube MCP service to fetch and address issues instead of making inferred fixes without querying SonarQube first.
+- When mentioning the rimworld log, automatically use the Rimworld MCP service to fetch the log.
 
-By leveraging these guidelines, GitHub Copilot can effectively enhance the development process for the "Prisoners Don't Have Keys" mod, ensuring consistent and efficient code production.

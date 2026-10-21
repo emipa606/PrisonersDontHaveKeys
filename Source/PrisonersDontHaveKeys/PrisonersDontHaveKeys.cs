@@ -5,7 +5,7 @@ using Verse;
 namespace PrisonersDontHaveKeys;
 
 [StaticConstructorOnStartup]
-public class PrisonersDontHaveKeys
+public static class PrisonersDontHaveKeys
 {
     static PrisonersDontHaveKeys()
     {
